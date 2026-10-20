@@ -496,6 +496,11 @@ function applyEngine(
       cards: [{ type: 'tickets', ticketIds: ids }],
     });
 
+  for (const id of r.cancel) {
+    const t = s.tickets.find((x) => x.id === id);
+    if (t?.guestId === guest.id && (t.status === 'new' || t.status === 'accepted'))
+      applyStatus(s, id, 'cancelled', 'Guest');
+  }
   if (r.completeCardMessageId) completeCard(s, r.completeCardMessageId);
   if (r.pending === null) delete conv.pending;
   else if (r.pending) {
@@ -903,42 +908,44 @@ function statusMessage(s: State, t: Ticket, status: TicketStatus, by: string) {
 }
 
 export function setTicketStatus(id: string, status: TicketStatus, by?: string) {
-  update((s) => {
-    const t = s.tickets.find((x) => x.id === id);
-    if (!t || t.status === status || t.status === 'done' || t.status === 'cancelled') return;
-    const at = stamp(s);
-    const who = by ?? DEPT_BY_ID[t.department].staff;
-    if (status === 'accepted') {
-      t.acceptedAt = at;
-      t.assignee = who;
-    }
-    if (status === 'on_the_way') {
-      t.acceptedAt ??= at;
-      t.assignee ??= who;
-      t.onTheWayAt = at;
-    }
-    if (status === 'done') {
-      t.acceptedAt ??= at;
-      t.assignee ??= who;
-      t.doneAt = at;
-    }
-    if (status === 'cancelled') t.cancelledAt = at;
-    t.status = status;
-    t.notes.push({ at, by: who, text: `Status → ${status.replace(/_/g, ' ')}` });
-    statusMessage(s, t, status, who);
-    // Closing the last person-needed ticket clears the "waiting for a person" flag.
-    if (status === 'done' && (t.kind === 'handover' || t.kind === 'recovery')) {
-      const conv = conversationOf(s, t.guestId);
-      const stillOpen = s.tickets.some(
-        (x) =>
-          x.guestId === t.guestId &&
-          (x.kind === 'handover' || x.kind === 'recovery') &&
-          x.status !== 'done' &&
-          x.status !== 'cancelled',
-      );
-      if (conv && !stillOpen) delete conv.handoverRequested;
-    }
-  });
+  update((s) => applyStatus(s, id, status, by));
+}
+
+function applyStatus(s: State, id: string, status: TicketStatus, by?: string) {
+  const t = s.tickets.find((x) => x.id === id);
+  if (!t || t.status === status || t.status === 'done' || t.status === 'cancelled') return;
+  const at = stamp(s);
+  const who = by ?? DEPT_BY_ID[t.department].staff;
+  if (status === 'accepted') {
+    t.acceptedAt = at;
+    t.assignee = who;
+  }
+  if (status === 'on_the_way') {
+    t.acceptedAt ??= at;
+    t.assignee ??= who;
+    t.onTheWayAt = at;
+  }
+  if (status === 'done') {
+    t.acceptedAt ??= at;
+    t.assignee ??= who;
+    t.doneAt = at;
+  }
+  if (status === 'cancelled') t.cancelledAt = at;
+  t.status = status;
+  t.notes.push({ at, by: who, text: `Status → ${status.replace(/_/g, ' ')}` });
+  statusMessage(s, t, status, who);
+  // Closing the last person-needed ticket clears the "waiting for a person" flag.
+  if (status === 'done' && (t.kind === 'handover' || t.kind === 'recovery')) {
+    const conv = conversationOf(s, t.guestId);
+    const stillOpen = s.tickets.some(
+      (x) =>
+        x.guestId === t.guestId &&
+        (x.kind === 'handover' || x.kind === 'recovery') &&
+        x.status !== 'done' &&
+        x.status !== 'cancelled',
+    );
+    if (conv && !stillOpen) delete conv.handoverRequested;
+  }
 }
 
 export function cancelTicket(id: string) {

@@ -153,7 +153,7 @@ Prompt caching of the fixed instructions and knowledge base reduces the input sh
 ## Quality checks (latest run)
 
 - TypeScript strict, ESLint and Prettier clean; no console errors in any tested flow
-- 38 unit tests (including cross-device sync against a simulated server) and 33 end-to-end tests passing on phone and desktop sizes (Present mode runs on desktop only), covering sign-in, check-out, separate guest chats, staff replies and every guided-demo scenario in English and Arabic
+- 38 unit tests (including cross-device sync against a simulated server) and 35 end-to-end tests passing on phone and desktop sizes (Present mode runs on desktop only), covering sign-in, check-out, separate guest chats, staff replies and every guided-demo scenario in English and Arabic
 - Lighthouse (mobile) on `/` and `/guest`: Accessibility, Best Practices and SEO 100; Performance 91 on `/` and 89–96 on `/guest` across three runs (the sign-in screen sits right at the 90 target)
 - Respects `prefers-reduced-motion`; keyboard navigable with visible focus; live regions for new messages
 

@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { freshStart, sendGuest, signIn, watchConsole } from './helpers';
+import { boardCard, freshStart, sendGuest, signIn, watchConsole } from './helpers';
 
 async function openStaffView(page: Page, view: 'requests' | 'chats' | 'guests') {
   const staff = await page.context().newPage();
@@ -162,4 +162,20 @@ test.describe('Guest chats for staff', () => {
     await expect(page.getByText('the robes are on their way.').last()).toBeVisible();
     noErrors();
   });
+});
+
+test('a guest cancelling in chat cancels the ticket on the staff board', async ({ page }) => {
+  const noErrors = watchConsole(page);
+  await freshStart(page);
+  await signIn(page);
+  await sendGuest(page, 'Could you send two extra towels please?');
+  const staff = await openStaffView(page, 'requests');
+  await staff.getByRole('tab', { name: /All departments/ }).click();
+  const card = boardCard(staff, 'Extra towels');
+  await expect(card).toHaveAttribute('data-status', 'new');
+
+  await sendGuest(page, 'Please cancel the towels');
+  await expect(page.getByText(/I've cancelled/).last()).toBeVisible();
+  await expect(card).toHaveCount(0);
+  noErrors();
 });
