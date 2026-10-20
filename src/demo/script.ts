@@ -42,7 +42,7 @@ export const DEMO_STEPS: DemoStep[] = [
     run: async ({ sleep }) => {
       await sendGuestMessage(
         DEMO_GUEST_ID,
-        'Hi, the AC in my room is quite loud, could you send two extra towels, and book a table at the Beach Grill for 8 tonight?',
+        'Hi, the AC in my room is quite loud, could you send two extra towels, and book a table at Meat Point for 8 tonight?',
       );
       await sleep(readTime() + 900);
       await sendGuestMessage(DEMO_GUEST_ID, 'Two of us, please');

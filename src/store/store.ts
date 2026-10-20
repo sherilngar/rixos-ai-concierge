@@ -40,7 +40,7 @@ import { RemoteSync, type SyncStatus, type Transport } from './remote';
  */
 
 export interface State {
-  v: 4;
+  v: 5;
   guests: Guest[];
   conversations: Conversation[];
   messages: Message[];
@@ -61,7 +61,7 @@ const CHANNEL = 'rixos-concierge';
 function initialState(): State {
   const now = Date.now();
   return {
-    v: 4,
+    v: 5,
     guests: demoGuests(now),
     conversations: [],
     messages: [],
@@ -84,7 +84,7 @@ function load(): State {
     const raw = localStorage.getItem(KEY);
     if (raw) {
       const parsed = JSON.parse(raw) as State;
-      if (parsed.v === 4) return { ...parsed, rev: parsed.rev ?? 0, writer: parsed.writer ?? '' };
+      if (parsed.v === 5) return { ...parsed, rev: parsed.rev ?? 0, writer: parsed.writer ?? '' };
     }
   } catch {
     /* storage unavailable: fall through to a fresh demo */
@@ -136,14 +136,16 @@ function commit(next: State, local = true) {
 
 if (channel) {
   channel.onmessage = (e: MessageEvent<State>) => {
-    if (e.data?.v === 4 && !remote) commit(e.data, false);
+    if (e.data?.v === 5 && !remote) commit(e.data, false);
   };
 }
 if (typeof window !== 'undefined') {
   window.addEventListener('storage', (e) => {
     if (e.key === KEY && e.newValue && !remote) {
       try {
-        commit(JSON.parse(e.newValue) as State, false);
+        const next = JSON.parse(e.newValue) as State;
+        // An older tab still open on this device writes an older shape; ignore it.
+        if (next.v === 5) commit(next, false);
       } catch {
         /* ignore malformed */
       }
@@ -202,7 +204,7 @@ function fromWire(w: unknown): State | null {
   const s = w as Partial<State> | null;
   if (
     !s ||
-    s.v !== 4 ||
+    s.v !== 5 ||
     !Array.isArray(s.tickets) ||
     !Array.isArray(s.guests) ||
     typeof s.startedAt !== 'number'

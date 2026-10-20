@@ -304,7 +304,7 @@ export const KB_TOPICS: KbTopic[] = [
   },
 ];
 
-/** Topics for each outlet, so "when does the Beach Grill open" is answered precisely. */
+/** Topics for each outlet, so "when does Isla Beach Bar open" is answered precisely. */
 export function outletTopics(k: Knowledge): KbTopic[] {
   return k.outlets.map((o) => ({
     id: `outlet:${o.id}`,

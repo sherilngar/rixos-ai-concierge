@@ -88,9 +88,9 @@ Each guest has their own chat and request list. The “Continue as Sarah Mitchel
 
 ## Data and sync across devices
 
-A guest on a phone and staff on a laptop see the same data, live, through Supabase (Mumbai region, free plan). The free plan allows two projects and both are in use, so this copy keeps its data in its **own record** (`rixos-live`) inside the **so-ai-concierge** project. It never reads or writes the SO/ record; to give Rixos its own project, upgrade the Supabase plan or pause an unused project, create the project, apply `supabase/migrations/0002_demo_state_sync.sql`, and change the URL and key in `src/store/supabaseTransport.ts`.
+A guest on a phone and staff on a laptop see the same data, live, through Supabase (Mumbai region, free plan). The free plan allows two projects and both are in use, so this copy keeps its data in its **own record** (`rixos-live-2`) inside the **so-ai-concierge** project. It never reads or writes the SO/ record; to give Rixos its own project, upgrade the Supabase plan or pause an unused project, create the project, apply `supabase/migrations/0002_demo_state_sync.sql`, and change the URL and key in `src/store/supabaseTransport.ts`.
 
-- The whole demo is one record (`demo_state`, id `rixos-live`) with a revision number. Each change shows on screen at once, then is sent with the revision it was based on. If another device changed something first, the app reloads the latest state, replays its pending changes on top and sends again, so nothing is lost (`src/store/remote.ts`).
+- The whole demo is one record (`demo_state`, id `rixos-live-2`) with a revision number. Each change shows on screen at once, then is sent with the revision it was based on. If another device changed something first, the app reloads the latest state, replays its pending changes on top and sends again, so nothing is lost (`src/store/remote.ts`).
 - Other devices are told through Supabase Realtime, with a 10-second check as a fallback if a network blocks live updates.
 - The browser holds only the publishable key. It can read the demo record and write only through `commit_demo_state`, which checks the revision, shape and size (`supabase/migrations/0002_demo_state_sync.sql`). Anyone with the link can still change or reset the demo, which is fine for a proposal but not for real guest data.
 - A badge in the header shows **Live on all devices**, **Offline · this device only** or **This device only**. If Supabase is unreachable the demo keeps working on the device and catches up when the connection returns.
@@ -115,19 +115,28 @@ What works today is right for the presentation and for a small pilot with **test
 
 `.env.example` lists the variables a pilot needs and where each may live.
 
-## Sample content and what still needs real hotel data
+## Hotel content: what is real and what is still sample
 
-The only fact used is the location (Al Marjan Island, Ras Al Khaimah, UAE). The room count is left blank until the hotel confirms it. Everything else is a placeholder:
+These details come from the hotel's own [all-inclusive guide on rixos.com](https://www.rixos.com/guide-your-all-inclusive-stay-rixos-bab-al-bahr) and the Rixos à la carte reservation policy, checked on 20 October 2026. The hotel may change hours without notice, so check them again before the presentation:
 
-- Outlet names, types, opening hours and dress codes (four generic outlets)
-- Check-in and check-out times, late check-out, pets, smoking and dress-code policies
+- Location (Al Marjan Island, Ras Al Khaimah, UAE)
+- Restaurants and bars: Seven Heights (temporarily in the Ankara Dining Hall), Meat Point, L'Olivo, Lalezar, Aja, The Breeze, Aisha Lobby Lounge & Terrace, Isla Beach Bar, Highlights Bar, Infinity Bar, Sports Hub (18+), ACT 1 and Cabana Bar, with their opening hours
+- Dress code (smart casual in à la carte restaurants; no swimwear or wet clothes in restaurants, indoor bars or the lobby)
+- Rixy Kids Club (ages 4 to 12) and Teens Club hours, and babysitting (from age 2, book 24 hours ahead, extra charge)
+- Check-in from 15:00, check-out 12:00, late check-out through Guest Relations for a charge; pool and beach hours 09:00–18:00 and sunbeds first come, first served (these last points come from the hotel's half-board guide on the same site)
+
+The cuisine for Aja was not stated consistently, so it is listed only as an à la carte restaurant. The Arabic outlet names are transliterations. The room count is left blank until the hotel confirms it.
+
+Still placeholders (marked **Sample content** in the app):
+
+- Pets and smoking policies
 - Wi-Fi network name and sign-in method
-- Spa hours, treatment list, in-room massage availability; gym, classes, sauna and steam hours
-- Pool and beach hours, towels, cabanas; kids' club hours and ages, babysitting, activity schedule
+- Spa (Misul Spa & Salon) hours, treatment list, in-room massage; gym, classes, sauna and steam hours
+- Pool towels; the activity schedule
 - Transport options and parking
 - In-room dining hours and the full menu (dishes, dietary tags, allergens, options). No prices are shown.
 - Contact points and emergency instructions
-- Staff names (Nadia, Maria, Rajesh and others), the sample guest (Sarah Mitchell, room 1207) and other rooms
+- Staff names (Nadia, Maria, Rajesh, Sherif and others), the sample guest (Sarah Mitchell, room 1207) and other rooms
 - Response standards for Laundry, Recreation, IT & AV and Rooms Controller (the brief did not define them)
 - Seven days of generated history on Insights (toggle “Live demo only” to hide it)
 

@@ -20,6 +20,8 @@ export const KnowledgeSchema = z.object({
     /** Null until the hotel confirms its room count. */
     rooms: z.number().nullable(),
     confirmed: z.array(z.string()),
+    /** Where the confirmed details come from. */
+    source: z.string().optional(),
     note: z.string(),
   }),
   policies: z.object({

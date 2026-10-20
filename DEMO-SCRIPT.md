@@ -23,7 +23,7 @@ Point at the split screen: guest phone on the left, the live staff board on the 
 
 Press **Start guided demo**.
 
-- The guest writes one sentence: the AC is loud, two towels, a table at the Beach Grill for 8 tonight.
+- The guest writes one sentence: the AC is loud, two towels, a table at Meat Point for 8 tonight.
 - Watch the tickets fly to **Engineering** and **Housekeeping**. The AC ticket says “Noisy”; the towels show “2 ×”.
 - The concierge asks only what is missing (“How many guests?”). The guest answers and the reservation goes to **Restaurants**.
 

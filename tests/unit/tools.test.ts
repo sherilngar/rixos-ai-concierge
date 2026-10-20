@@ -41,7 +41,7 @@ describe('tool input validation', () => {
   it('validates reservation date, time and party size', () => {
     expect(
       validateTool('create_reservation', {
-        outlet: 'The Beach Grill',
+        outlet: 'Meat Point',
         date: 'today',
         time: '20:00',
         party_size: 2,
@@ -49,7 +49,7 @@ describe('tool input validation', () => {
     ).toBe(true);
     expect(
       validateTool('create_reservation', {
-        outlet: 'The Beach Grill',
+        outlet: 'Meat Point',
         date: 'someday',
         time: '20:00',
         party_size: 2,
@@ -57,7 +57,7 @@ describe('tool input validation', () => {
     ).toBe(false);
     expect(
       validateTool('create_reservation', {
-        outlet: 'The Beach Grill',
+        outlet: 'Meat Point',
         date: 'today',
         time: '25:00',
         party_size: 2,
@@ -65,7 +65,7 @@ describe('tool input validation', () => {
     ).toBe(false);
     expect(
       validateTool('create_reservation', {
-        outlet: 'The Beach Grill',
+        outlet: 'Meat Point',
         date: 'today',
         time: '20:00',
         party_size: 0,

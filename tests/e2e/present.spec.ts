@@ -25,7 +25,7 @@ test.describe('Present mode guided demo', () => {
     await expect(phone.getByText('How many guests will be joining?').last()).toBeVisible();
     await expect(boardCard(board, 'Air conditioning')).toBeVisible();
     await expect(boardCard(board, 'Extra towels')).toBeVisible();
-    await expect(boardCard(board, 'Table reservation')).toContainText('The Beach Grill');
+    await expect(boardCard(board, 'Table reservation')).toContainText('Meat Point');
     await expect(board.locator('[data-dept-lane="engineering"]')).toBeVisible();
 
     // 2. Departments respond; the guest is updated.

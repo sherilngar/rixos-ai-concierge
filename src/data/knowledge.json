@@ -3,17 +3,18 @@
     "hotel": "Rixos Bab Al Bahr",
     "location": "Al Marjan Island, Ras Al Khaimah, UAE",
     "rooms": null,
-    "confirmed": ["location"],
-    "note": "Every entry marked sample is placeholder content for the demo and must be replaced with approved hotel information."
+    "confirmed": ["location", "outlets", "kidsClub", "checkIn", "checkOut", "dressCode"],
+    "note": "Outlets, kids club, check-in and check-out, late check-out and dress code come from the Rixos Bab Al Bahr all-inclusive guide on rixos.com (checked 20 October 2026). Every section still marked sample is placeholder content and must be replaced with approved hotel information.",
+    "source": "Rixos Bab Al Bahr all-inclusive guide on rixos.com (checked 20 October 2026)"
   },
   "policies": {
     "sample": true,
     "checkIn": "15:00",
     "checkOut": "12:00",
-    "lateCheckOut": "Subject to availability; your ambassador confirms.",
+    "lateCheckOut": "Possible through Guest Relations for an extra charge, subject to availability. You can use the resort facilities until 12:00 on the day you leave.",
     "pets": "Please ask your ambassador about our pet policy.",
     "smoking": "Smoking is permitted only in designated outdoor areas.",
-    "dressCode": "Smart casual in restaurants in the evening; swimwear only at the pool and beach."
+    "dressCode": "Smart casual in the à la carte restaurants. No slippers or sandals; gentlemen in full-length trousers, elegant jeans or tailored shorts with closed shoes. Swimwear, swim shorts, wet or see-through clothing are not allowed in restaurants, indoor bars or the lobby."
   },
   "wifi": {
     "sample": true,
@@ -23,70 +24,176 @@
   },
   "outlets": [
     {
-      "id": "allday",
-      "sample": true,
-      "name": "The All-Day Restaurant",
-      "nameAr": "مطعم اليوم الكامل",
-      "type": "International buffet and à la carte",
+      "id": "sevenheights",
+      "name": "Seven Heights",
+      "nameAr": "سفن هايتس",
+      "type": "Main buffet restaurant (temporarily in the Ankara Dining Hall)",
       "meals": ["breakfast", "lunch", "dinner"],
-      "hours": "Breakfast 06:30–10:30 · Lunch 12:30–15:30 · Dinner 18:30–22:30",
-      "dressCode": "Smart casual",
-      "reservations": true,
+      "hours": "Breakfast 07:00–11:00 · Lunch 12:30–15:30 (Fri–Sat until 16:00) · Dinner 18:00–22:00",
+      "dressCode": "No swimwear, swim shorts, wet or see-through clothing",
+      "reservations": false,
       "kw": [
-        "all-day restaurant",
-        "all day restaurant",
-        "all-day dining",
+        "seven heights",
+        "7 heights",
+        "ankara dining hall",
+        "ankara",
         "buffet",
-        "breakfast",
-        "مطعم اليوم الكامل",
-        "الفطور",
-        "فطور",
-        "البوفيه"
+        "main restaurant",
+        "سفن هايتس",
+        "البوفيه",
+        "المطعم الرئيسي"
       ]
     },
     {
-      "id": "grill",
-      "sample": true,
-      "name": "The Beach Grill",
-      "nameAr": "مشويات الشاطئ",
-      "type": "Seafood and grill by the beach",
+      "id": "meatpoint",
+      "name": "Meat Point",
+      "nameAr": "ميت بوينت",
+      "type": "Steakhouse, flame-grilled meats with South American flavours",
+      "meals": ["breakfast", "lunch", "dinner"],
+      "hours": "Breakfast 08:00–11:00 · Lunch 13:00–15:30 (Fri–Sat until 16:00) · Dinner 18:00–22:30 (à la carte)",
+      "dressCode": "Smart casual. No slippers or sandals; gentlemen in full-length trousers, elegant jeans or tailored shorts with closed shoes. No swimwear or wet clothes",
+      "reservations": true,
+      "kw": ["meat point", "steakhouse", "steak house", "ميت بوينت", "ستيك هاوس"]
+    },
+    {
+      "id": "lolivo",
+      "name": "L'Olivo",
+      "nameAr": "لوليفو",
+      "type": "Italian trattoria with pizza made in front of you",
       "meals": ["lunch", "dinner"],
-      "hours": "Lunch 12:30–16:00 · Dinner 18:30–23:00",
-      "dressCode": "Smart casual; beach and terrace tables available",
+      "hours": "Lunch daily 12:30–15:30 (last order 15:00) · Dinner Thu–Sun 18:00–22:30 (last order 22:00)",
+      "dressCode": "Smart casual. No slippers or sandals; gentlemen in full-length trousers, elegant jeans or tailored shorts with closed shoes. No swimwear or wet clothes",
       "reservations": true,
       "kw": [
-        "beach grill",
-        "the grill",
-        "grill",
-        "seafood",
-        "مشويات الشاطئ",
-        "المشويات",
-        "مأكولات بحرية"
+        "l'olivo",
+        "lolivo",
+        "l olivo",
+        "olivo",
+        "trattoria",
+        "italian restaurant",
+        "لوليفو",
+        "ليوليفو",
+        "المطعم الإيطالي"
       ]
     },
     {
-      "id": "lounge",
-      "sample": true,
-      "name": "The Lobby Lounge",
-      "nameAr": "ردهة اللوبي",
-      "type": "Coffee, afternoon tea and light bites",
-      "meals": ["afternoon tea"],
-      "hours": "08:00–00:00 · Afternoon tea 15:00–18:00",
-      "dressCode": "Smart casual",
+      "id": "lalezar",
+      "name": "Lalezar",
+      "nameAr": "لاله زار",
+      "type": "Middle Eastern cuisine inspired by the Ottoman Turkish tradition",
+      "meals": ["dinner"],
+      "hours": "Dinner daily 18:00–22:30 (last order 22:00)",
+      "dressCode": "Smart casual. No slippers or sandals; gentlemen in full-length trousers, elegant jeans or tailored shorts with closed shoes. No swimwear or wet clothes",
       "reservations": true,
-      "kw": ["lobby lounge", "lounge", "afternoon tea", "ردهة اللوبي", "اللوبي", "شاي العصر"]
+      "kw": ["lalezar", "turkish restaurant", "ottoman", "لاله زار", "المطعم التركي"]
     },
     {
-      "id": "poolbar",
-      "sample": true,
-      "name": "The Pool Bar",
-      "nameAr": "مقهى المسبح",
-      "type": "Light lunch, juices and refreshments",
+      "id": "aja",
+      "name": "Aja",
+      "nameAr": "آجا",
+      "type": "À la carte restaurant",
+      "meals": ["dinner"],
+      "hours": "Dinner Mon–Wed 18:00–22:30",
+      "dressCode": "Smart casual. No slippers or sandals; gentlemen in full-length trousers, elegant jeans or tailored shorts with closed shoes. No swimwear or wet clothes",
+      "reservations": true,
+      "kw": ["aja", "آجا"]
+    },
+    {
+      "id": "breeze",
+      "name": "The Breeze",
+      "nameAr": "ذا بريز",
+      "type": "Casual bar with light food",
       "meals": ["lunch"],
-      "hours": "10:00–19:00",
+      "hours": "Bar 11:00–sunset · Food 12:00–18:00 (last order 17:30)",
       "dressCode": "Resort wear",
       "reservations": false,
-      "kw": ["pool bar", "مقهى المسبح", "بار المسبح"]
+      "kw": ["the breeze", "breeze", "ذا بريز", "بريز"]
+    },
+    {
+      "id": "aisha",
+      "name": "Aisha Lobby Lounge & Terrace",
+      "nameAr": "ردهة وتراس عائشة",
+      "type": "Lobby lounge and terrace",
+      "meals": [],
+      "hours": "Daily 06:00–02:00 · Friday and Saturday 24 hours",
+      "dressCode": "No swimwear, swim shorts, wet or see-through clothing",
+      "reservations": false,
+      "kw": [
+        "aisha lobby lounge",
+        "aisha lounge",
+        "aisha",
+        "lobby lounge",
+        "lounge",
+        "ردهة عائشة",
+        "عائشة",
+        "اللوبي"
+      ]
+    },
+    {
+      "id": "isla",
+      "name": "Isla Beach Bar",
+      "nameAr": "إيسلا بيتش بار",
+      "type": "Beach bar; shisha 12:00–00:00",
+      "meals": [],
+      "hours": "Daily 11:00–01:00",
+      "dressCode": "Resort wear",
+      "reservations": false,
+      "kw": ["isla beach bar", "isla", "beach bar", "shisha", "إيسلا", "الشيشة"]
+    },
+    {
+      "id": "highlights",
+      "name": "Highlights Bar",
+      "nameAr": "هايلايتس بار",
+      "type": "Pool bar",
+      "meals": [],
+      "hours": "Daily 10:00–sunset",
+      "dressCode": "Resort wear",
+      "reservations": false,
+      "kw": ["highlights bar", "highlights", "هايلايتس"]
+    },
+    {
+      "id": "infinity",
+      "name": "Infinity Bar",
+      "nameAr": "إنفينيتي بار",
+      "type": "Pool bar",
+      "meals": [],
+      "hours": "Daily 10:00–sunset",
+      "dressCode": "Resort wear",
+      "reservations": false,
+      "kw": ["infinity bar", "infinity", "إنفينيتي"]
+    },
+    {
+      "id": "sportshub",
+      "name": "Sports Hub",
+      "nameAr": "سبورتس هب",
+      "type": "Sports bar, adults only (18+)",
+      "meals": [],
+      "hours": "Daily 14:00–01:00",
+      "dressCode": "No swimwear, swim shorts, wet or see-through clothing",
+      "reservations": false,
+      "kw": ["sports hub", "sports bar", "سبورتس هب"]
+    },
+    {
+      "id": "act1",
+      "name": "ACT 1",
+      "nameAr": "آكت 1",
+      "type": "Bar",
+      "meals": [],
+      "hours": "Daily 18:00–01:00 · Friday and Saturday until 02:00",
+      "dressCode": "No swimwear, swim shorts, wet or see-through clothing",
+      "reservations": false,
+      "kw": ["act 1", "act one", "act1", "آكت 1", "آكت"]
+    },
+    {
+      "id": "cabanabar",
+      "name": "Cabana Bar",
+      "nameAr": "كابانا بار",
+      "type": "Beach bar",
+      "meals": [],
+      "hours": "Daily 10:00–sunset",
+      "dressCode": "Resort wear",
+      "reservations": false,
+      "kw": ["cabana bar", "كابانا بار"]
     }
   ],
   "spa": {
@@ -114,7 +221,11 @@
         "name": "Hydrating facial · 50 min",
         "nameAr": "علاج الوجه المرطب · ٥٠ دقيقة"
       },
-      { "id": "couples", "name": "Couples massage · 60 min", "nameAr": "مساج للزوجين · ٦٠ دقيقة" }
+      {
+        "id": "couples",
+        "name": "Couples massage · 60 min",
+        "nameAr": "مساج للزوجين · ٦٠ دقيقة"
+      }
     ]
   },
   "gym": {
@@ -122,18 +233,21 @@
     "hours": "Open 24 hours with your room key",
     "classes": "Morning yoga 07:30 · Aqua fitness 11:00 · Stretch 17:30"
   },
-  "sauna": { "sample": true, "hours": "10:00–21:00, inside the spa changing rooms" },
+  "sauna": {
+    "sample": true,
+    "hours": "10:00–21:00, inside the spa changing rooms"
+  },
   "pool": {
     "sample": true,
-    "hours": "Pool 07:00–20:00 · Beach 07:00–sunset",
+    "hours": "Pools and beach 09:00–18:00 (hours set by the local authorities)",
     "towels": "Pool and beach towels are provided at the towel desk.",
-    "cabanas": "Cabanas and daybeds can be reserved through the concierge."
+    "cabanas": "Sunbeds are first come, first served."
   },
   "kidsClub": {
-    "sample": true,
-    "hours": "09:00–18:00",
-    "ages": "4 to 12 years; younger children with a parent or babysitter.",
-    "babysitting": "Available on request with advance notice."
+    "sample": false,
+    "hours": "10:00–14:30 and 15:00–22:00 (Rixy Kids Club; the Teens Club for ages 9 to 17 keeps the same hours)",
+    "ages": "4 to 12 years",
+    "babysitting": "Available for children aged 2 and over. Please book 24 hours ahead; extra charges apply."
   },
   "activities": {
     "sample": true,

@@ -708,7 +708,7 @@ export function respond(raw: string, ctx: EngineContext): EngineResult {
   const catalogueEntries = CATALOGUE.flatMap((s) => s.items).map((i) => ({ key: i.key, kw: i.kw }));
   const menu = menuItems(k);
   const menuEntries = menu.map((m) => ({ key: `menu:${m.id}`, kw: [m.name, m.nameAr, ...m.kw] }));
-  // Outlet names compete in the same pool so "Beach Grill" is not read as "beach".
+  // Outlet names compete in the same pool so "Isla Beach Bar" is not read as "beach".
   const outletEntries = k.outlets.map((o) => ({
     key: `outlet:${o.id}`,
     kw: [o.name, o.nameAr, ...o.kw.filter((w) => w.split(' ').length > 1)],

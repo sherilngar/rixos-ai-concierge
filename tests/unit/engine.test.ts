@@ -25,7 +25,7 @@ function ctx(pending?: PendingState): EngineContext {
 describe('ticket routing from free text', () => {
   it('splits one message into several requests for different departments', () => {
     const r = respond(
-      'Hi, the AC in my room is quite loud, could you send two extra towels, and book a table at the Beach Grill for 8 tonight?',
+      'Hi, the AC in my room is quite loud, could you send two extra towels, and book a table at Meat Point for 8 tonight?',
       ctx(),
     );
     const depts = r.drafts.map((d) => d.department);
@@ -37,7 +37,7 @@ describe('ticket routing from free text', () => {
     // Party size is missing, so the concierge asks instead of guessing.
     expect(r.pending?.type).toBe('booking');
     if (r.pending?.type === 'booking') {
-      expect(r.pending.booking.outlet).toBe('grill');
+      expect(r.pending.booking.outlet).toBe('meatpoint');
       expect(r.pending.booking.time).toBe('20:00');
       expect(r.pending.asking).toBe('partySize');
     }
@@ -49,7 +49,7 @@ describe('ticket routing from free text', () => {
   });
 
   it('completes the booking once the party size arrives', () => {
-    const first = respond('Book a table at the Beach Grill for 8 tonight', ctx());
+    const first = respond('Book a table at Meat Point for 8 tonight', ctx());
     const second = respond('two of us', ctx(first.pending ?? undefined));
     expect(second.drafts).toHaveLength(1);
     expect(second.drafts[0]?.department).toBe('restaurants');
@@ -152,20 +152,20 @@ describe('hand-offs and safety', () => {
 });
 
 describe('knowledge answers stay out of the way of requests', () => {
-  it('does not read "Beach Grill" as a question about the beach', () => {
-    const r = respond('Book a table at the Beach Grill for 8 tonight', ctx());
+  it('does not treat a table booking as a question', () => {
+    const r = respond('Book a table at Meat Point for 8 tonight', ctx());
     expect(r.replies.some((x) => x.cards?.some((c) => c.type === 'info'))).toBe(false);
   });
   it('answers outlet questions by name', () => {
-    const r = respond('When is the Beach Grill open?', ctx());
-    expect(r.replies[0]?.text).toMatch(/Beach Grill/);
+    const r = respond('When is Isla Beach Bar open?', ctx());
+    expect(r.replies[0]?.text).toMatch(/Isla Beach Bar/);
   });
 });
 
 describe('Arabic scenarios', () => {
   it('multi-request in Arabic', () => {
     const r = respond(
-      'التكييف صوته عالي، ممكن منشفتين وحجز طاولة في مشويات الشاطئ الساعة ٨ الليلة',
+      'التكييف صوته عالي، ممكن منشفتين وحجز طاولة في ميت بوينت الساعة ٨ الليلة',
       ctx(),
     );
     expect(r.lang).toBe('ar');
@@ -173,7 +173,7 @@ describe('Arabic scenarios', () => {
     expect(r.drafts.find((d) => d.itemKey === 'towels')?.quantity).toBe(2);
     expect(r.pending?.type).toBe('booking');
     if (r.pending?.type !== 'booking') return;
-    expect(r.pending.booking).toMatchObject({ outlet: 'grill', time: '20:00', date: 'today' });
+    expect(r.pending.booking).toMatchObject({ outlet: 'meatpoint', time: '20:00', date: 'today' });
     const r2 = respond('شخصين', ctx(r.pending));
     expect(r2.drafts[0]?.payload?.['party_size']).toBe(2);
     expect(r2.replies[0]?.text).toMatch(/طاولة/);

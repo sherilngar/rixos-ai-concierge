@@ -8,7 +8,7 @@ import type { Transport } from './remote';
 export const SUPABASE_URL = 'https://lqgygvswwkskkkyzimni.supabase.co';
 export const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_Bz68qiXjRyGGMac6eeEClw_GNvBw8ox';
 // Bumped with each change to the data's shape, so tabs still running an older version cannot overwrite it.
-export const DEMO_ID = 'rixos-live';
+export const DEMO_ID = 'rixos-live-2';
 
 /** Cross-device sync is on unless the build or the URL turns it off (`?local`). */
 export function syncEnabled(): boolean {

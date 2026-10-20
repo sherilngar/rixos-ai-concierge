@@ -4,10 +4,10 @@ import { boardCard, freshStart, sendGuest, signIn, watchConsole } from './helper
 const COPY = {
   en: {
     multi:
-      'The AC is quite loud, could you send two extra towels, and book a table at the Beach Grill for 8 tonight?',
+      'The AC is quite loud, could you send two extra towels, and book a table at Meat Point for 8 tonight?',
     party: 'Two of us',
     partyQ: 'How many guests will be joining?',
-    booked: /requested a table at The Beach Grill/,
+    booked: /requested a table at Meat Point/,
     dining: "Could I order a club sandwich and a fresh orange juice? I'm allergic to nuts.",
     readBack: 'Let me repeat your order:',
     yes: 'Yes, please',
@@ -18,10 +18,10 @@ const COPY = {
     star2: '2 out of 5',
   },
   ar: {
-    multi: 'التكييف صوته عالي، ممكن منشفتين وحجز طاولة في مشويات الشاطئ الساعة ٨ الليلة',
+    multi: 'التكييف صوته عالي، ممكن منشفتين وحجز طاولة في ميت بوينت الساعة ٨ الليلة',
     party: 'شخصين',
     partyQ: 'كم عدد الضيوف؟',
-    booked: /طلبت لك طاولة في مشويات الشاطئ/,
+    booked: /طلبت لك طاولة في ميت بوينت/,
     dining: 'أبغى كلوب ساندويتش وعصير برتقال، عندي حساسية من المكسرات',
     readBack: 'دعني أكرر طلبك:',
     yes: 'نعم',
