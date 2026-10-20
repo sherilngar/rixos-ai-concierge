@@ -16,7 +16,7 @@ import type { DepartmentId } from '../domain/types';
 import { DEMO_STEPS, resetForDemo } from '../demo/script';
 import { advanceClock, getState, onStoreEvent } from '../store/store';
 
-const SESSION = { department: 'dutymanager' as const, name: 'Ahmed' };
+const SESSION = { department: 'dutymanager' as const, name: 'Sherif' };
 
 interface Flight {
   key: string;

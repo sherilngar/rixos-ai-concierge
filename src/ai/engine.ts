@@ -687,8 +687,8 @@ export function respond(raw: string, ctx: EngineContext): EngineResult {
     replies.push({
       text: tr(
         L,
-        `${name}, I have alerted Security and the Duty Manager; they are on their way to room ${ctx.guest.room} now. Please follow the emergency instructions below.`,
-        `${name}، أبلغت فريق الأمن ومدير المناوبة وهم في طريقهم إلى غرفتك ${ctx.guest.room} الآن. يرجى اتباع تعليمات الطوارئ أدناه.`,
+        `${name}, I have alerted Security and the Rooms Controller; they are on their way to room ${ctx.guest.room} now. Please follow the emergency instructions below.`,
+        `${name}، أبلغت فريق الأمن ومراقب الغرف وهم في طريقهم إلى غرفتك ${ctx.guest.room} الآن. يرجى اتباع تعليمات الطوارئ أدناه.`,
       ),
       cards: [{ type: 'emergency' }, { type: 'tickets', ticketIds: [NEW_TICKETS] }],
     });
@@ -1010,8 +1010,8 @@ export function respond(raw: string, ctx: EngineContext): EngineResult {
     replies.push({
       text: tr(
         L,
-        `${name}, I've alerted our team and the Duty Manager; a colleague will call you within minutes. If this is an emergency, please follow the guidance below now.`,
-        `${name}، أبلغت فريقنا ومدير المناوبة، وسيتصل بك زميل خلال دقائق. إذا كانت حالة طارئة فيرجى اتباع الإرشادات أدناه الآن.`,
+        `${name}, I've alerted our team and the Rooms Controller; a colleague will call you within minutes. If this is an emergency, please follow the guidance below now.`,
+        `${name}، أبلغت فريقنا ومراقب الغرف، وسيتصل بك زميل خلال دقائق. إذا كانت حالة طارئة فيرجى اتباع الإرشادات أدناه الآن.`,
       ),
       cards: [{ type: 'emergency' }],
     });
@@ -1019,8 +1019,8 @@ export function respond(raw: string, ctx: EngineContext): EngineResult {
     replies.push({
       text: tr(
         L,
-        `${name}, I've alerted our Security team and the Duty Manager; someone will be with you shortly. If you are in immediate danger, please call the emergency extension on your room phone.`,
-        `${name}، أبلغت فريق الأمن ومدير المناوبة وسيصل إليك أحدهم قريباً. إذا كنت في خطر مباشر فيرجى الاتصال برقم الطوارئ من هاتف الغرفة.`,
+        `${name}, I've alerted our Security team and the Rooms Controller; someone will be with you shortly. If you are in immediate danger, please call the emergency extension on your room phone.`,
+        `${name}، أبلغت فريق الأمن ومراقب الغرف وسيصل إليك أحدهم قريباً. إذا كنت في خطر مباشر فيرجى الاتصال برقم الطوارئ من هاتف الغرفة.`,
       ),
     });
   } else if (sensitive) {

@@ -12,7 +12,7 @@ export function standardMinutes(
 
 /**
  * Escalation is driven by time-to-accept: supervisor at 100% of the standard,
- * duty manager at 200%. Once accepted (or closed) a ticket stops escalating.
+ * Rooms Controller at 200%. Once accepted (or closed) a ticket stops escalating.
  */
 export function computeEscalation(
   ticket: Pick<Ticket, 'department' | 'priority' | 'status' | 'createdAt'>,
@@ -40,7 +40,7 @@ export function timerProgress(
 
 export function escalationLabel(level: EscalationLevel): string {
   return level === 2
-    ? 'Escalated to Duty Manager'
+    ? 'Escalated to Rooms Controller'
     : level === 1
       ? 'Escalated to Supervisor'
       : 'Within standard';

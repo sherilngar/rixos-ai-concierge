@@ -163,8 +163,8 @@ function StandardsEditor() {
         Response standards
       </h2>
       <p className="mb-5 text-sm text-muted">
-        Minutes to accept a request. Tickets escalate to the supervisor at 100% and the Duty Manager
-        at 200%.
+        Minutes to accept a request. Tickets escalate to the supervisor at 100% and the Rooms
+        Controller at 200%.
       </p>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[480px] text-sm">

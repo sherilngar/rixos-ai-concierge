@@ -6,7 +6,7 @@ For the General Manager, senior management and IT. Presenter: Sherif El Naggar. 
 
 1. Open the live site on the laptop and go to **Present** (`#/present`). Press **Reset**.
 2. On your phone, scan the QR code on the landing page and sign in as a guest: room `1207`, surname `Mitchell` (or tap “Continue as Sarah Mitchell”). Use room `0412`, surname `Rahman` for a second guest.
-3. In a second laptop tab, open the **Staff board** (`#/staff`), sign in as Duty Manager with PIN `1234`, and choose **All departments**. Keep it ready for questions.
+3. In a second laptop tab, open the **Staff board** (`#/staff`), sign in as Rooms Controller with PIN `1234`, and choose **All departments**. Keep it ready for questions.
 4. Turn the laptop volume low (new tickets make a soft chime). Set the projector to light mode, or use the moon icon for dark mode.
 
 Check the header badge says **Live on all devices**. Phone and laptop then share the same demo; **Reset** clears both. If the Wi-Fi fails, the badge shows **Offline · this device only** and Present mode still runs the whole demo on the laptop.
@@ -47,7 +47,7 @@ Press **Next step**. The guest orders a club sandwich with brown bread and an or
 Press **Next step**. The demo clock is fast-forwarded.
 
 - At 100% of the 3-minute standard the ticket turns red and goes to the **IRD Supervisor**.
-- At 200% it reaches the **Duty Manager** (Duty Manager tab), who accepts it.
+- At 200% it reaches the **Rooms Controller** (Rooms Controller tab), who accepts it.
 
 > “Response standards are set per department in Settings. Nobody has to watch the clock.”
 

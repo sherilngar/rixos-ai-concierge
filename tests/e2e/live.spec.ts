@@ -131,7 +131,7 @@ test.describe('Guest chats for staff', () => {
       .fill('So sorry, Mr Rahman. An engineer is on the way now.');
     await staff.getByTestId('staff-send').click();
     await expect(page.getByText('An engineer is on the way now.').last()).toBeVisible();
-    await expect(page.getByTestId('mode-banner')).toContainText("You're chatting with Ahmed");
+    await expect(page.getByTestId('mode-banner')).toContainText("You're chatting with Sherif");
 
     // While a person is in charge, the guest's messages reach staff and the AI stays quiet.
     await page.getByTestId('guest-input').fill('Thank you, how long will it take?');

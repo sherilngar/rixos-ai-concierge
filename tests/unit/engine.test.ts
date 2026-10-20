@@ -125,7 +125,7 @@ describe('hand-offs and safety', () => {
     expect(r.drafts.find((d) => d.itemKey === 'shower')?.priority).toBe('high');
   });
 
-  it('alerts security and the duty manager for emergencies', () => {
+  it('alerts security and the Rooms Controller for emergencies', () => {
     const r = respond('There is smoke in the corridor!', ctx());
     expect(r.emergency).toBe(true);
     expect(r.drafts.map((d) => d.department).sort()).toEqual(['dutymanager', 'security']);

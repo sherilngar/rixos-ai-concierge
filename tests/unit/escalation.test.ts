@@ -47,7 +47,7 @@ describe('escalation timing', () => {
   it('goes to the supervisor at exactly 100%', () => {
     expect(computeEscalation(ticket, DEFAULT_STANDARDS, t0 + 5 * MIN)).toBe(1);
   });
-  it('goes to the duty manager at 200%', () => {
+  it('goes to the Rooms Controller at 200%', () => {
     expect(computeEscalation(ticket, DEFAULT_STANDARDS, t0 + 10 * MIN - 1)).toBe(1);
     expect(computeEscalation(ticket, DEFAULT_STANDARDS, t0 + 10 * MIN)).toBe(2);
   });

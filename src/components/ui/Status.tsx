@@ -25,7 +25,7 @@ export function StatusPill({
     return (
       <span className="inline-flex items-center gap-1 rounded-full border border-st-escalated/40 bg-st-escalated/10 px-2 py-0.5 text-xs font-medium text-st-escalated">
         <AlertTriangle size={12} aria-hidden />
-        {escalation === 2 ? 'Escalated · Duty Manager' : 'Escalated · Supervisor'}
+        {escalation === 2 ? 'Escalated · Rooms Controller' : 'Escalated · Supervisor'}
       </span>
     );
   }

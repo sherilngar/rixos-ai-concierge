@@ -86,14 +86,14 @@ export const DEMO_STEPS: DemoStep[] = [
     id: 'escalation',
     title: 'Escalation when nobody accepts',
     narration:
-      'Nobody has accepted the dining order. At 100% of the 3-minute standard it goes to the supervisor; at 200% to the Duty Manager. The demo clock is fast-forwarded to show it.',
+      'Nobody has accepted the dining order. At 100% of the 3-minute standard it goes to the supervisor; at 200% to the Rooms Controller. The demo clock is fast-forwarded to show it.',
     run: async ({ sleep }) => {
       advanceClock(3.2);
       await sleep(2400);
       advanceClock(3);
       await sleep(2600);
       const order = findTicket((t) => t.kind === 'dining');
-      if (order) setTicketStatus(order.id, 'accepted', 'Ahmed (Duty Manager)');
+      if (order) setTicketStatus(order.id, 'accepted', 'Sherif (Rooms Controller)');
       await sleep(900);
     },
   },

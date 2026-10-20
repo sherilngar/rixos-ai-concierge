@@ -53,7 +53,7 @@ const STEPS = [
   {
     Icon: UsersRound,
     title: 'Departments act, the guest is kept informed',
-    body: 'Accepted, on the way, done: every step appears in the guest’s chat. Late tickets escalate to the supervisor, then the Duty Manager.',
+    body: 'Accepted, on the way, done: every step appears in the guest’s chat. Late tickets escalate to the supervisor, then the Rooms Controller.',
   },
   {
     Icon: Star,

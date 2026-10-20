@@ -116,7 +116,7 @@ export function TicketCard({
           {escalated && (
             <p className="mt-1.5 text-xs font-medium text-st-escalated">
               {t.escalationLevel === 2
-                ? 'Not accepted within 200% of standard → Duty Manager'
+                ? 'Not accepted within 200% of standard → Rooms Controller'
                 : `Not accepted within standard → ${DEPT_BY_ID[t.department].supervisor}`}
             </p>
           )}

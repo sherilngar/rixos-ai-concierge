@@ -101,11 +101,11 @@ export const DEPARTMENTS: DepartmentInfo[] = [
   },
   {
     id: 'dutymanager',
-    en: 'Duty Manager',
-    ar: 'مدير المناوبة',
-    short: 'Duty Manager',
-    staff: 'Ahmed',
-    supervisor: 'Duty Manager',
+    en: 'Rooms Controller',
+    ar: 'مراقب الغرف',
+    short: 'Rooms Controller',
+    staff: 'Sherif',
+    supervisor: 'Rooms Controller',
   },
 ];
 
@@ -116,7 +116,7 @@ export const DEPT_BY_ID = Object.fromEntries(DEPARTMENTS.map((d) => [d.id, d])) 
 
 /**
  * Response standards in minutes. The first eight come from the brief; laundry,
- * recreation, IT and duty manager are placeholders until the hotel confirms them.
+ * recreation, IT and Rooms Controller are placeholders until the hotel confirms them.
  */
 export const DEFAULT_STANDARDS: Standards = {
   ird: { normal: 3 },

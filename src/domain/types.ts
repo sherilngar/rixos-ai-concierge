@@ -15,7 +15,7 @@ export type DepartmentId =
 export type Priority = 'normal' | 'high' | 'urgent';
 export type TicketStatus = 'new' | 'accepted' | 'on_the_way' | 'done' | 'cancelled';
 export type Lang = 'en' | 'ar' | 'other';
-/** 0 = within standard, 1 = supervisor, 2 = duty manager */
+/** 0 = within standard, 1 = supervisor, 2 = Rooms Controller */
 export type EscalationLevel = 0 | 1 | 2;
 
 export interface Guest {

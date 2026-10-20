@@ -41,7 +41,7 @@ const LAYERS = [
     items: [
       'Department and priority',
       'Response standards per team',
-      'Escalation: supervisor at 100%, Duty Manager at 200%',
+      'Escalation: supervisor at 100%, Rooms Controller at 200%',
     ],
   },
   {
@@ -83,7 +83,7 @@ const SECURITY = [
   {
     Icon: UserCheck,
     title: 'People for sensitive matters',
-    body: 'Complaints, medical, safety, refunds, compensation, valuables and other guests always go to a person. Emergencies alert Security and the Duty Manager immediately.',
+    body: 'Complaints, medical, safety, refunds, compensation, valuables and other guests always go to a person. Emergencies alert Security and the Rooms Controller immediately.',
   },
   {
     Icon: Lock,

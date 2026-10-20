@@ -62,7 +62,7 @@ GitHub Pages on a free account needs a public repository. Nothing secret is in t
 - **Free text, several requests:** “The AC is loud, send two towels and book a table for 8” becomes an Engineering ticket (detail: noisy), a Housekeeping ticket (2 towels) and a booking that asks for the one missing detail (party size).
 - **Catalogue:** every item in the brief's request catalogue (`src/domain/catalogue.ts`) is both a services-grid option and a phrase it understands, in English and Arabic (including Arabic dual forms such as منشفتين = two towels).
 - **Never guesses:** answers come only from `src/data/knowledge.json`; unknown questions go to the ambassador.
-- **People for sensitive matters:** complaints, unhappy tone, medical, security, refunds, compensation, valuables and other guests are handed to a person. Emergencies show guidance and alert Security and the Duty Manager.
+- **People for sensitive matters:** complaints, unhappy tone, medical, security, refunds, compensation, valuables and other guests are handed to a person. Emergencies show guidance and alert Security and the Rooms Controller.
 - **Dining orders** are read back, allergies flagged, and placed only after a clear “yes”.
 - **Privacy:** card, passport and Emirates ID numbers are masked before storage, with a reminder to the guest.
 - **Prompt injection** attempts are declined.
@@ -128,7 +128,7 @@ The only fact used is the location (Al Marjan Island, Ras Al Khaimah, UAE). The 
 - In-room dining hours and the full menu (dishes, dietary tags, allergens, options). No prices are shown.
 - Contact points and emergency instructions
 - Staff names (Nadia, Maria, Rajesh and others), the sample guest (Sarah Mitchell, room 1207) and other rooms
-- Response standards for Laundry, Recreation, IT & AV and Duty Manager (the brief did not define them)
+- Response standards for Laundry, Recreation, IT & AV and Rooms Controller (the brief did not define them)
 - Seven days of generated history on Insights (toggle “Live demo only” to hide it)
 
 Edit all of it in Settings (`#/admin`) or `src/data/knowledge.json`, and set `"sample": false` on each section once it is approved. The “Sample content” badge disappears when nothing sample remains.

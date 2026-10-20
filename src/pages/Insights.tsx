@@ -369,7 +369,7 @@ export default function Insights() {
           <Tile label="Average time to complete">
             <CountUp value={data.complete} decimals={1} suffix=" min" />
           </Tile>
-          <Tile label="Escalations" note={`${data.escalationsDm} reached the Duty Manager`}>
+          <Tile label="Escalations" note={`${data.escalationsDm} reached the Rooms Controller`}>
             <CountUp value={data.escalations} />
           </Tile>
           <Tile label="Average rating" note={`${data.ratingsN} ratings`}>

@@ -83,7 +83,7 @@ const en = {
   stars: (n: number) => `${n} out of 5`,
   emergencyTitle: 'Emergency guidance',
   emergencyBody:
-    'Security and the Duty Manager have been alerted. If there is fire or smoke, leave by the nearest stairway and do not use the lifts. For a medical emergency, stay where you are; help is coming. Use the emergency extension on your room phone if you can.',
+    'Security and the Rooms Controller have been alerted. If there is fire or smoke, leave by the nearest stairway and do not use the lifts. For a medical emergency, stay where you are; help is coming. Use the emergency extension on your room phone if you can.',
   handoverTitle: 'A person is joining',
   privacyTitle: 'Number hidden for your safety',
   sampleContent: 'Sample content',
@@ -208,7 +208,7 @@ const ar: Strings = {
   stars: (n: number) => `${n} من 5`,
   emergencyTitle: 'إرشادات الطوارئ',
   emergencyBody:
-    'تم إبلاغ فريق الأمن ومدير المناوبة. في حال وجود حريق أو دخان، غادر عبر أقرب درج ولا تستخدم المصاعد. في حالة طبية طارئة ابقَ في مكانك فالمساعدة في الطريق. استخدم رقم الطوارئ من هاتف الغرفة إن أمكن.',
+    'تم إبلاغ فريق الأمن ومراقب الغرف. في حال وجود حريق أو دخان، غادر عبر أقرب درج ولا تستخدم المصاعد. في حالة طبية طارئة ابقَ في مكانك فالمساعدة في الطريق. استخدم رقم الطوارئ من هاتف الغرفة إن أمكن.',
   handoverTitle: 'موظف سينضم إليك',
   privacyTitle: 'أخفينا الرقم حرصاً على أمانك',
   sampleContent: 'محتوى تجريبي',

@@ -36,7 +36,7 @@ const COPY = {
 async function openStaff(page: Page) {
   const staff = await page.context().newPage();
   await staff.goto('/#/staff');
-  await staff.locator('label', { hasText: 'Duty Manager' }).click();
+  await staff.locator('label', { hasText: 'Rooms Controller' }).click();
   await staff.locator('#pin').fill('1234');
   await staff.getByRole('button', { name: /Sign in as/ }).click();
   await staff.getByRole('tab', { name: /All departments/ }).click();
@@ -86,7 +86,7 @@ for (const lang of ['en', 'ar'] as const) {
       noErrors();
     });
 
-    test('unaccepted ticket escalates to supervisor, then Duty Manager', async ({ page }) => {
+    test('unaccepted ticket escalates to supervisor, then Rooms Controller', async ({ page }) => {
       const noErrors = watchConsole(page);
       const staff = await openStaff(page);
       await sendGuest(page, c.dining);
@@ -101,8 +101,8 @@ for (const lang of ['en', 'ar'] as const) {
       await expect(card).toContainText('IRD Supervisor');
       for (let i = 0; i < 3; i++) await plus.click();
       await expect(card).toHaveAttribute('data-escalation', '2');
-      await expect(card).toContainText('Duty Manager');
-      await staff.getByRole('tab', { name: /Duty Manager/ }).click();
+      await expect(card).toContainText('Rooms Controller');
+      await staff.getByRole('tab', { name: /Rooms Controller/ }).click();
       await expect(boardCard(staff, 'In-room dining order')).toBeVisible();
       noErrors();
     });
@@ -123,7 +123,7 @@ for (const lang of ['en', 'ar'] as const) {
       await expect(
         page.getByText('I am so sorry, I am coming up to see you now.').last(),
       ).toBeVisible();
-      await expect(page.getByTestId('mode-banner')).toContainText('Ahmed');
+      await expect(page.getByTestId('mode-banner')).toContainText('Sherif');
       noErrors();
     });
   });

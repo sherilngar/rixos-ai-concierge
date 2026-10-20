@@ -1186,7 +1186,7 @@ export function tickEscalations() {
       tk.notes.push({
         at: t,
         by: 'System',
-        text: `${escalationLabel(level)} (${level === 1 ? DEPT_BY_ID[tk.department].supervisor : 'Duty Manager'})`,
+        text: `${escalationLabel(level)} (${level === 1 ? DEPT_BY_ID[tk.department].supervisor : 'Rooms Controller'})`,
       });
     }
   });

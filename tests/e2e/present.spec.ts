@@ -43,7 +43,7 @@ test.describe('Present mode guided demo', () => {
     await expect(phone.getByText(/Your order is placed, Sarah/).last()).toBeVisible();
     await expect(boardCard(board, 'In-room dining order')).toContainText('ALLERGY: nuts');
 
-    // 4. Escalation to the Duty Manager when nobody accepts.
+    // 4. Escalation to the Rooms Controller when nobody accepts.
     await step();
     const order = boardCard(board, 'In-room dining order');
     await expect(order).toHaveAttribute('data-escalation', '2');
