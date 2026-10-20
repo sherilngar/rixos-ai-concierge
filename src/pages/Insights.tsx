@@ -245,7 +245,7 @@ export default function Insights() {
   const standards = useStore((s) => s.settings.standards);
   const [range, setRange] = useState<'7d' | 'live'>('7d');
   useEffect(() => {
-    document.title = 'Insights · SO/ AI Concierge';
+    document.title = 'Insights · Rixos AI Concierge';
   }, []);
 
   const data = useMemo(() => {

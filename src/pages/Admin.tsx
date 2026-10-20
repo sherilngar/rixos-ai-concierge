@@ -12,8 +12,8 @@ import { resetDemo, setKnowledge, setStandards, useStore } from '../store/store'
  * out of Settings but is not real security. The pilot uses staff single sign-on.
  * SHA-256 of the demo password (see README).
  */
-const PASSWORD_HASH = 'c62e1f6d4373b2b270f189b42408a347b1480197e36d453859b5c83c0fca485f';
-const KEY = 'so-admin-unlocked';
+const PASSWORD_HASH = 'ed47241ec703411d790397ead521bc59eb49d0d57a618dd0b6fce067a5b508a0';
+const KEY = 'rixos-admin-unlocked';
 
 async function sha256(text: string) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
@@ -29,7 +29,7 @@ export default function Admin() {
     }
   });
   useEffect(() => {
-    document.title = 'Settings · SO/ AI Concierge';
+    document.title = 'Settings · Rixos AI Concierge';
   }, []);
   return (
     <>

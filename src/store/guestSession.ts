@@ -4,7 +4,7 @@ import { useSyncExternalStore } from 'react';
  * Which guest is signed in on this device. Kept per device (not in the shared
  * state), so a phone stays signed in as its own guest while staff use laptops.
  */
-const KEY = 'so-guest-session';
+const KEY = 'rixos-guest-session';
 const listeners = new Set<() => void>();
 
 function read(): string | null {

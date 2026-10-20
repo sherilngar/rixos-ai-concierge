@@ -1,4 +1,4 @@
--- Pilot (phase 2) schema for the SO/ AI Concierge. NOT APPLIED: kept as the design for real per-guest data.
+-- Pilot (phase 2) schema for the Rixos AI Concierge. NOT APPLIED: kept as the design for real per-guest data.
 -- Not used by the GitHub Pages proposal demo, which keeps data on the device.
 -- Mirrors the in-browser store in src/store/store.ts so screens need no changes.
 

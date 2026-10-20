@@ -17,7 +17,8 @@ export const KnowledgeSchema = z.object({
   meta: z.object({
     hotel: z.string(),
     location: z.string(),
-    rooms: z.number(),
+    /** Null until the hotel confirms its room count. */
+    rooms: z.number().nullable(),
     confirmed: z.array(z.string()),
     note: z.string(),
   }),

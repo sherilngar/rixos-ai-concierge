@@ -1,6 +1,6 @@
 {
-  "name": "SO/ AI Concierge",
-  "short_name": "SO/ Concierge",
+  "name": "Rixos AI Concierge",
+  "short_name": "Rixos Concierge",
   "start_url": "./#/guest",
   "display": "standalone",
   "background_color": "#F6F2EC",

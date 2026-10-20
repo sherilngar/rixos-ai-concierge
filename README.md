@@ -1,8 +1,10 @@
-# SO/ AI Concierge · proposal demo
+# Rixos AI Concierge · proposal demo
 
-A presentation-ready demo of an AI concierge for **SO/ Al Marjan Island, Ras Al Khaimah** (257 rooms). Guests write in their own words; the concierge answers from approved hotel information, turns each message into tickets for the right department, keeps the guest updated, asks for a rating, and hands over to a person whenever it should.
+A presentation-ready demo of an AI concierge for **Rixos Bab Al Bahr, Al Marjan Island, Ras Al Khaimah**. Guests write in their own words; the concierge answers from approved hotel information, turns each message into tickets for the right department, keeps the guest updated, asks for a rating, and hands over to a person whenever it should.
 
-Prepared by Ahmed Elsayyad, Duty Manager, for the General Manager, senior management and IT.
+Prepared by Ahmed Elsayyad for the General Manager, senior management and IT.
+
+> This is a separate copy of the SO/ Al Marjan Island concierge demo. It has its own code, its own address and its own data, so changes here never affect the SO/ version.
 
 > **This is a proposal demo.** It runs entirely in the browser on GitHub Pages: a scripted offline concierge stands in for Claude, and all data stays on the device. Hotel details marked **Sample content** are placeholders.
 
@@ -22,7 +24,7 @@ Demo access:
 
 - **Guests:** room number and surname of anyone on the in-house list (for example room `1207`, surname `Mitchell`), or the “Continue as Sarah Mitchell” link on the sign-in screen.
 - **Staff board:** any department, PIN `1234`.
-- **Settings:** password `so-admin-2026`. This only keeps casual viewers out. A static site cannot protect anything for real; the pilot uses staff single sign-on.
+- **Settings:** password `rixos-admin-2026`. This only keeps casual viewers out. A static site cannot protect anything for real; the pilot uses staff single sign-on.
 
 ## Run it locally
 
@@ -44,10 +46,10 @@ npm run dev            # http://localhost:5173
 
 ## Publish on GitHub Pages
 
-1. Create the repository (for example `so-ai-concierge`) and push `main`.
+1. Create the repository (for example `rixos-ai-concierge`) and push `main`.
 2. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. Every push to `main` runs `.github/workflows/pages.yml` (tests, build, deploy). The site appears at `https://<your-user>.github.io/so-ai-concierge/`.
-4. Make the QR code for the printed handout: `npm run qr -- https://<your-user>.github.io/so-ai-concierge/#/guest`.
+3. Every push to `main` runs `.github/workflows/pages.yml` (tests, build, deploy). The site appears at `https://<your-user>.github.io/rixos-ai-concierge/`.
+4. Make the QR code for the printed handout: `npm run qr -- https://<your-user>.github.io/rixos-ai-concierge/#/guest`.
 
 The app uses hash routes and relative asset paths, so it works from any Pages sub-path without extra configuration. `.github/workflows/ci.yml` runs the full quality checks on every pull request.
 
@@ -86,14 +88,14 @@ Each guest has their own chat and request list. The “Continue as Sarah Mitchel
 
 ## Data and sync across devices
 
-A guest on a phone and staff on a laptop see the same data, live, through the Supabase project **so-ai-concierge** (Mumbai region, free plan):
+A guest on a phone and staff on a laptop see the same data, live, through Supabase (Mumbai region, free plan). The free plan allows two projects and both are in use, so this copy keeps its data in its **own record** (`rixos-live`) inside the **so-ai-concierge** project. It never reads or writes the SO/ record; to give Rixos its own project, upgrade the Supabase plan or pause an unused project, create the project, apply `supabase/migrations/0002_demo_state_sync.sql`, and change the URL and key in `src/store/supabaseTransport.ts`.
 
-- The whole demo is one record (`demo_state`, id `so-live`) with a revision number. Each change shows on screen at once, then is sent with the revision it was based on. If another device changed something first, the app reloads the latest state, replays its pending changes on top and sends again, so nothing is lost (`src/store/remote.ts`).
+- The whole demo is one record (`demo_state`, id `rixos-live`) with a revision number. Each change shows on screen at once, then is sent with the revision it was based on. If another device changed something first, the app reloads the latest state, replays its pending changes on top and sends again, so nothing is lost (`src/store/remote.ts`).
 - Other devices are told through Supabase Realtime, with a 10-second check as a fallback if a network blocks live updates.
 - The browser holds only the publishable key. It can read the demo record and write only through `commit_demo_state`, which checks the revision, shape and size (`supabase/migrations/0002_demo_state_sync.sql`). Anyone with the link can still change or reset the demo, which is fine for a proposal but not for real guest data.
 - A badge in the header shows **Live on all devices**, **Offline · this device only** or **This device only**. If Supabase is unreachable the demo keeps working on the device and catches up when the connection returns.
 - **Reset** clears the demo on every connected device.
-- Add `?local` before the `#` in the address (for example `…/THEAPP/?local#/present`) to run on this device only, without the database.
+- Add `?local` before the `#` in the address (for example `…/rixos-ai-concierge/?local#/present`) to run on this device only, without the database.
 
 The local store (`src/store/store.ts`) still keeps a copy in `localStorage` and, in device-only mode, syncs tabs with `BroadcastChannel`. One tab per device (chosen with the Web Locks API) runs the escalation clock.
 
@@ -109,13 +111,13 @@ What works today is right for the presentation and for a small pilot with **test
 | AI                 | Offline concierge in the browser (English and Arabic)                        | Claude through a server function (`claude-haiku-5-5` by default) with the key held server-side; needs a host with server functions such as Netlify         |
 | Content            | Sample outlets, hours, menus, policies                                       | Approved hotel content entered in Settings                                                                                                                 |
 | Compliance         | Not reviewed                                                                 | Privacy notice, retention period and UAE PDPL (Federal Decree-Law 45 of 2021) review with the data protection lead and IT                                  |
-| Scale              | Fine for a demo and a few rooms                                              | Per-guest tables (above) so 257 rooms do not share one record                                                                                              |
+| Scale              | Fine for a demo and a few rooms                                              | Per-guest tables (above) so every room does not share one record                                                                                           |
 
 `.env.example` lists the variables a pilot needs and where each may live.
 
 ## Sample content and what still needs real hotel data
 
-The only confirmed facts are the location (Al Marjan Island, Ras Al Khaimah, UAE) and 257 rooms. Everything else is a placeholder:
+The only fact used is the location (Al Marjan Island, Ras Al Khaimah, UAE). The room count is left blank until the hotel confirms it. Everything else is a placeholder:
 
 - Outlet names, types, opening hours and dress codes (four generic outlets)
 - Check-in and check-out times, late check-out, pets, smoking and dress-code policies
@@ -133,7 +135,7 @@ Edit all of it in Settings (`#/admin`) or `src/data/knowledge.json`, and set `"s
 
 ## Brand
 
-The logo is the file supplied by the hotel (`public/brand/so-logo.jpg`), with its white margins trimmed for display (`so-logo-trimmed.webp`); it is never redrawn. On dark backgrounds the same file is shown inverted as an interim measure. Replace both with the official `so-logo.svg` and `so-logo-white.svg` when available and update `src/components/ui/Logo.tsx`. Colours and type follow the brief's palette (ivory, sand, warm black, bronze; Cormorant Garamond and Rubik, with Noto Naskh Arabic for Arabic) until official brand guidelines are provided.
+No logo file has been supplied yet, so a plain text placeholder (“RIXOS / BAB AL BAHR”) is shown; the brand mark is not drawn or imitated. Put the official file in `public/brand/` and set `LOGO_SRC` in `src/components/ui/Logo.tsx`. Colours and type use the same neutral palette as the SO/ demo (ivory, sand, warm black, bronze; Cormorant Garamond and Rubik, with Noto Naskh Arabic for Arabic) until Rixos brand guidelines are provided.
 
 ## Running cost (approximate)
 

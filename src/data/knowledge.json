@@ -1,9 +1,9 @@
 {
   "meta": {
-    "hotel": "SO/ Al Marjan Island",
+    "hotel": "Rixos Bab Al Bahr",
     "location": "Al Marjan Island, Ras Al Khaimah, UAE",
-    "rooms": 257,
-    "confirmed": ["location", "rooms"],
+    "rooms": null,
+    "confirmed": ["location"],
     "note": "Every entry marked sample is placeholder content for the demo and must be replaced with approved hotel information."
   },
   "policies": {
@@ -17,7 +17,7 @@
   },
   "wifi": {
     "sample": true,
-    "network": "SO-Guest",
+    "network": "Hotel-Guest",
     "access": "Connect to the network and sign in with your room number and surname.",
     "cost": "Complimentary for in-house guests."
   },

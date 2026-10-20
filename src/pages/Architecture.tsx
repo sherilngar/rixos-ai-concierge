@@ -126,7 +126,7 @@ const PHASES = [
   {
     n: '3',
     title: 'Scale and integrate',
-    when: 'All 257 rooms',
+    when: 'All rooms',
     points: [
       'Connect PMS, work-order and point-of-sale systems',
       'Add WhatsApp and in-room TV channels',
@@ -137,7 +137,7 @@ const PHASES = [
 
 export default function Architecture() {
   useEffect(() => {
-    document.title = 'For IT · SO/ AI Concierge';
+    document.title = 'For IT · Rixos AI Concierge';
   }, []);
   return (
     <>

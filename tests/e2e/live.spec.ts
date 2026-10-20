@@ -32,7 +32,7 @@ test.describe('Guest sign-in', () => {
     await page.getByRole('checkbox').check();
     await page.getByRole('button', { name: /^Start/ }).click();
     await expect(page.getByTestId('guest-greeting')).toContainText('Sarah');
-    await expect(page.getByText(/Welcome to SO\/, Sarah/).last()).toBeVisible();
+    await expect(page.getByText(/Welcome to Rixos Bab Al Bahr, Sarah/).last()).toBeVisible();
 
     // Stays signed in after a reload, and signs out cleanly.
     await page.reload();
@@ -55,7 +55,7 @@ test.describe('Guest sign-in', () => {
     await page.getByRole('checkbox').check();
     await page.getByRole('button', { name: /ابدأ/ }).click();
     await expect(page.getByTestId('guest-app')).toHaveAttribute('dir', 'rtl');
-    await expect(page.getByText(/أهلاً بك في SO\/ يا Omar/).last()).toBeVisible();
+    await expect(page.getByText(/أهلاً بك في ريكسوس باب البحر يا Omar/).last()).toBeVisible();
     noErrors();
   });
 

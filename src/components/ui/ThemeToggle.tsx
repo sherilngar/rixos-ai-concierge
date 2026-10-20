@@ -9,7 +9,7 @@ export function ThemeToggle({ className = '' }: { className?: string }) {
     if (next) document.documentElement.dataset.theme = 'dark';
     else delete document.documentElement.dataset.theme;
     try {
-      localStorage.setItem('so-theme', next ? 'dark' : 'light');
+      localStorage.setItem('rixos-theme', next ? 'dark' : 'light');
     } catch {
       /* ignore */
     }

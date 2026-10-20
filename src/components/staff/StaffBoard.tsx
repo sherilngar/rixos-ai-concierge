@@ -44,7 +44,7 @@ export function StaffBoard({
   const [openId, setOpenId] = useState<string | null>(null);
   const [sound, setSound] = useState(() => {
     try {
-      return localStorage.getItem('so-sound') !== 'off';
+      return localStorage.getItem('rixos-sound') !== 'off';
     } catch {
       return true;
     }
@@ -96,7 +96,7 @@ export function StaffBoard({
   const toggleSound = () => {
     setSound((v) => {
       try {
-        localStorage.setItem('so-sound', v ? 'off' : 'on');
+        localStorage.setItem('rixos-sound', v ? 'off' : 'on');
       } catch {
         /* ignore */
       }

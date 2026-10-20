@@ -12,7 +12,7 @@ import { DEPT_ICON } from '../components/ui/icons';
 import { DEPARTMENTS, DEPT_BY_ID } from '../domain/departments';
 import type { DepartmentId, StaffSession } from '../domain/types';
 
-const KEY = 'so-staff-session';
+const KEY = 'rixos-staff-session';
 /** Demo-only PIN. Real deployment uses the hotel's single sign-on. */
 const DEMO_PIN = '1234';
 
@@ -28,7 +28,7 @@ function loadSession(): StaffSession | null {
 export default function Staff() {
   const [session, setSession] = useState<StaffSession | null>(loadSession);
   useEffect(() => {
-    document.title = 'Staff board · SO/ AI Concierge';
+    document.title = 'Staff board · Rixos AI Concierge';
   }, []);
   const signIn = (s: StaffSession) => {
     setSession(s);
@@ -65,7 +65,7 @@ function Workspace({ session, onSignOut }: { session: StaffSession; onSignOut: (
   useEffect(() => {
     let soundOn = true;
     try {
-      soundOn = localStorage.getItem('so-sound') !== 'off';
+      soundOn = localStorage.getItem('rixos-sound') !== 'off';
     } catch {
       /* ignore */
     }

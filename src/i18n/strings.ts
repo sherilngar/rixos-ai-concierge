@@ -104,7 +104,7 @@ const en = {
   retry: 'Try again',
   chatLog: 'Conversation with the concierge',
   signOut: 'Sign out',
-  signInTitle: 'Welcome to SO/',
+  signInTitle: 'Welcome to Rixos Bab Al Bahr',
   signInIntro:
     'Sign in with your room number and the surname on your reservation to chat with our concierge.',
   roomNumber: 'Room number',
@@ -228,7 +228,7 @@ const ar: Strings = {
   retry: 'حاول مجدداً',
   chatLog: 'المحادثة مع الكونسيرج',
   signOut: 'تسجيل الخروج',
-  signInTitle: 'أهلاً بك في SO/',
+  signInTitle: 'أهلاً بك في ريكسوس باب البحر',
   signInIntro: 'سجّل الدخول برقم غرفتك واسم العائلة المسجل في الحجز للتحدث مع الكونسيرج.',
   roomNumber: 'رقم الغرفة',
   surname: 'اسم العائلة',

@@ -1,4 +1,4 @@
--- Applied to the "so-ai-concierge" Supabase project (Mumbai, ap-south-1).
+-- Applied to the "so-ai-concierge" Supabase project (Mumbai, ap-south-1). The Rixos copy uses the same table with its own record id (rixos-live).
 -- Shared state for the proposal demo, so a guest phone and a staff laptop see the same data.
 -- The browser holds only the publishable key: it can read the demo row and write through
 -- commit_demo_state, which checks the revision (compare-and-swap), shape and size.

@@ -35,7 +35,7 @@ export default function Present() {
   const stage = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = 'Present · SO/ AI Concierge';
+    document.title = 'Present · Rixos AI Concierge';
   }, []);
 
   // A new ticket visibly flies from the guest's phone into its department lane.

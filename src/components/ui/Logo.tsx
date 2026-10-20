@@ -1,28 +1,51 @@
-import { useState } from 'react';
-
 /**
- * The official SO/ logo file supplied by the hotel, used as-is (never redrawn).
- * Falls back to a neutral text placeholder if the file is missing.
+ * Neutral text placeholder until the hotel supplies its official logo file.
+ * To use the real logo, put it in public/brand/ and set LOGO_SRC (and its size);
+ * the file is shown as-is, never redrawn.
  */
+const LOGO_SRC: string | null = null;
+const LOGO_SIZE = { width: 200, height: 60 };
+
 export function Logo({ className = 'h-10' }: { className?: string }) {
-  const [failed, setFailed] = useState(false);
-  if (failed)
+  if (LOGO_SRC)
     return (
-      <span
-        className={`inline-flex items-center font-display text-2xl tracking-wide ${className}`}
-        aria-label="SO/ Hotels & Resorts"
-      >
-        SO/
-      </span>
+      <img
+        src={LOGO_SRC}
+        alt="Rixos Bab Al Bahr"
+        width={LOGO_SIZE.width}
+        height={LOGO_SIZE.height}
+        className={`logo-img w-auto ${className}`}
+      />
     );
   return (
-    <img
-      src="brand/so-logo-trimmed.webp"
-      alt="SO/ Hotels & Resorts"
-      width={202}
-      height={74}
-      className={`logo-img w-auto ${className}`}
-      onError={() => setFailed(true)}
-    />
+    <svg
+      viewBox="0 0 200 60"
+      className={`w-auto text-fg ${className}`}
+      role="img"
+      aria-label="Rixos Bab Al Bahr"
+    >
+      <text
+        x="0"
+        y="34"
+        fill="currentColor"
+        fontFamily="'Cormorant Garamond', Georgia, serif"
+        fontSize="34"
+        fontWeight="500"
+        letterSpacing="6"
+      >
+        RIXOS
+      </text>
+      <text
+        x="1"
+        y="54"
+        fill="currentColor"
+        fontFamily="Rubik, system-ui, sans-serif"
+        fontSize="11.5"
+        letterSpacing="4.2"
+        opacity="0.75"
+      >
+        BAB AL BAHR
+      </text>
+    </svg>
   );
 }

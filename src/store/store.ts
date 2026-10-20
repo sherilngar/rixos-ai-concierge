@@ -55,8 +55,8 @@ export interface State {
   writer: string;
 }
 
-const KEY = 'so-concierge-state';
-const CHANNEL = 'so-concierge';
+const KEY = 'rixos-concierge-state';
+const CHANNEL = 'rixos-concierge';
 
 function initialState(): State {
   const now = Date.now();
@@ -438,8 +438,8 @@ export function signInGuest(guestId: string, lang: 'en' | 'ar') {
         lang,
         text: tr(
           lang,
-          `Welcome to SO/, ${guest.firstName}. I'm your AI concierge for room ${guest.room}. Ask me anything in your own words, or tap Services. Your ambassador, ${guest.ambassador}, is always one tap away.`,
-          `أهلاً بك في SO/ يا ${guest.firstName}. أنا مساعد الكونسيرج الذكي لغرفتك ${guest.room}. اطلب ما تشاء بكلماتك، أو اختر من الخدمات. ${guest.ambassador} من فريق سفراء التجربة متاح دائماً بضغطة واحدة.`,
+          `Welcome to Rixos Bab Al Bahr, ${guest.firstName}. I'm your AI concierge for room ${guest.room}. Ask me anything in your own words, or tap Services. Your ambassador, ${guest.ambassador}, is always one tap away.`,
+          `أهلاً بك في ريكسوس باب البحر يا ${guest.firstName}. أنا مساعد الكونسيرج الذكي لغرفتك ${guest.room}. اطلب ما تشاء بكلماتك، أو اختر من الخدمات. ${guest.ambassador} من فريق سفراء التجربة متاح دائماً بضغطة واحدة.`,
         ),
         chips:
           lang === 'ar'
@@ -1155,7 +1155,7 @@ export function reinstateGuest(guestId: string) {
 let leader = typeof navigator === 'undefined' || !('locks' in navigator);
 if (!leader) {
   // One tab at a time runs the escalation clock; the lock passes on when that tab closes.
-  void navigator.locks.request('so-concierge-leader', () => {
+  void navigator.locks.request('rixos-concierge-leader', () => {
     leader = true;
     return new Promise<void>(() => {});
   });

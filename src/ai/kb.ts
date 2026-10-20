@@ -273,8 +273,12 @@ export const KB_TOPICS: KbTopic[] = [
     answer: (k, lang) => ({
       sample: false,
       text: both(
-        `We are on ${k.meta.location}, with ${k.meta.rooms} rooms and suites.`,
-        `يقع الفندق في جزيرة المرجان، رأس الخيمة، الإمارات العربية المتحدة، ويضم ${k.meta.rooms} غرفة وجناحاً.`,
+        k.meta.rooms
+          ? `We are on ${k.meta.location}, with ${k.meta.rooms} rooms and suites.`
+          : `We are on ${k.meta.location}.`,
+        k.meta.rooms
+          ? `يقع الفندق في جزيرة المرجان، رأس الخيمة، الإمارات العربية المتحدة، ويضم ${k.meta.rooms} غرفة وجناحاً.`
+          : 'يقع الفندق في جزيرة المرجان، رأس الخيمة، الإمارات العربية المتحدة.',
         lang,
       ),
     }),

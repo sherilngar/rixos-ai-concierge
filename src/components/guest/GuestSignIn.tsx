@@ -10,7 +10,7 @@ import { Logo } from '../ui/Logo';
 import { SyncBadge } from '../ui/SyncBadge';
 import { ThemeToggle } from '../ui/ThemeToggle';
 
-const LANG_KEY = 'so-guest-lang';
+const LANG_KEY = 'rixos-guest-lang';
 
 function initialLang(): 'en' | 'ar' {
   try {

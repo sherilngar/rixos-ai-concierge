@@ -70,7 +70,7 @@ const fade = {
 
 export default function Landing() {
   useEffect(() => {
-    document.title = 'SO/ AI Concierge · Proposal demo';
+    document.title = 'Rixos AI Concierge · Proposal demo';
   }, []);
   return (
     <>
@@ -202,8 +202,8 @@ export default function Landing() {
         </section>
       </main>
       <footer className="border-t border-line/60 py-8 text-center text-xs text-muted">
-        Proposal demo for SO/ Al Marjan Island · Prepared by Ahmed Elsayyad, Duty Manager · Hotel
-        details marked as sample are placeholders.
+        Proposal demo for Rixos Bab Al Bahr · Prepared by Ahmed Elsayyad · Hotel details marked as
+        sample are placeholders.
       </footer>
     </>
   );
