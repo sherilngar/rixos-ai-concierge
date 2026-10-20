@@ -2,7 +2,7 @@
 
 A presentation-ready demo of an AI concierge for **Rixos Bab Al Bahr, Al Marjan Island, Ras Al Khaimah**. Guests write in their own words; the concierge answers from approved hotel information, turns each message into tickets for the right department, keeps the guest updated, asks for a rating, and hands over to a person whenever it should.
 
-Prepared by Ahmed Elsayyad for the General Manager, senior management and IT.
+Prepared by Sherif El Naggar for the General Manager, senior management and IT.
 
 > This is a separate copy of the SO/ Al Marjan Island concierge demo. It has its own code, its own address and its own data, so changes here never affect the SO/ version.
 

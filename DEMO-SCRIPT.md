@@ -1,6 +1,6 @@
 # Demo script · 5 minutes
 
-For the General Manager, senior management and IT. Presenter: Ahmed Elsayyad. Hotel: Rixos Bab Al Bahr.
+For the General Manager, senior management and IT. Presenter: Sherif El Naggar. Hotel: Rixos Bab Al Bahr.
 
 ## Before the meeting (5 minutes)
 

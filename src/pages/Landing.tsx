@@ -202,7 +202,7 @@ export default function Landing() {
         </section>
       </main>
       <footer className="border-t border-line/60 py-8 text-center text-xs text-muted">
-        Proposal demo for Rixos Bab Al Bahr · Prepared by Ahmed Elsayyad · Hotel details marked as
+        Proposal demo for Rixos Bab Al Bahr · Prepared by Sherif El Naggar · Hotel details marked as
         sample are placeholders.
       </footer>
     </>
